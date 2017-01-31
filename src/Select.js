@@ -440,7 +440,6 @@ const Select = React.createClass({
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
 		}
-		this.setState(onBlurredState);
 	},
 
 	handleInputChange (event) {
