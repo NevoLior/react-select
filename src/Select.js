@@ -57,6 +57,7 @@ const Select = React.createClass({
 		clearAllText: stringOrNode,                 // title for the "clear" control when multi: true
 		clearValueText: stringOrNode,               // title for the "clear" control
 		clearable: React.PropTypes.bool,            // should it be possible to reset value
+		closeOnBlur: React.PropTypes.bool,            // should it be possible to reset value
 		deleteRemoves: React.PropTypes.bool,        // whether backspace removes an item if there is no text input
 		delimiter: React.PropTypes.string,          // delimiter to use to join multiple values for the hidden field value
 		disabled: React.PropTypes.bool,             // whether the Select is disabled or not
@@ -126,6 +127,7 @@ const Select = React.createClass({
 			clearable: true,
 			clearAllText: 'Clear all',
 			clearValueText: 'Clear value',
+			closeOnBlur: true,
 			deleteRemoves: true,
 			delimiter: ',',
 			disabled: false,
@@ -439,6 +441,9 @@ const Select = React.createClass({
 		};
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
+		}
+		if (this.props.closeOnBlur){
+			this.setState(onBlurredState);
 		}
 	},
 

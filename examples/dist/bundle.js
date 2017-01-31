@@ -1099,6 +1099,7 @@ var Select = _react2['default'].createClass({
 		clearAllText: stringOrNode, // title for the "clear" control when multi: true
 		clearValueText: stringOrNode, // title for the "clear" control
 		clearable: _react2['default'].PropTypes.bool, // should it be possible to reset value
+		closeOnBlur: _react2['default'].PropTypes.bool, // should it be possible to reset value
 		deleteRemoves: _react2['default'].PropTypes.bool, // whether backspace removes an item if there is no text input
 		delimiter: _react2['default'].PropTypes.string, // delimiter to use to join multiple values for the hidden field value
 		disabled: _react2['default'].PropTypes.bool, // whether the Select is disabled or not
@@ -1168,6 +1169,7 @@ var Select = _react2['default'].createClass({
 			clearable: true,
 			clearAllText: 'Clear all',
 			clearValueText: 'Clear value',
+			closeOnBlur: true,
 			deleteRemoves: true,
 			delimiter: ',',
 			disabled: false,
@@ -1481,6 +1483,9 @@ var Select = _react2['default'].createClass({
 		};
 		if (this.props.onBlurResetsInput) {
 			onBlurredState.inputValue = '';
+		}
+		if (this.props.closeOnBlur) {
+			this.setState(onBlurredState);
 		}
 	},
 
