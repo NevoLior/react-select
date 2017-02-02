@@ -1440,7 +1440,6 @@ var Select = _react2['default'].createClass({
 		this.hasScrolledToOption = false;
 		if (this.props.multi) {
 			this.setState({
-				inputValue: '',
 				focusedIndex: null
 			}, function () {
 				_this3.addValue(value);
